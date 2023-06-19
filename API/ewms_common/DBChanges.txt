@@ -1,0 +1,15 @@
+﻿-- VERSION 002
+
+- Parametro para manejar el default de unidad de medida
+insert into TBL_CONFIGURATION values ('product_default_uom','KG')
+
+
+-- Parametro para manejo de assited putaway (ArrivalsBL)
+ insert into TBL_CONFIGURATION values ('putaway_fixed_location','');
+ insert into TBL_CONFIGURATION values ('putaway_fixed_zone','');
+
+ -- Vistas
+ VW_SBO_SALES_DETAIL: agregar LOTNUMBER
+ WMS_WAVE_DETAIL: agregar LOTNUMBER
+ VW_EWMS_SBO: Conflicto en tipo de dato
+ WMS_STOCK_X_LOCATION: Cambio en llave primaria

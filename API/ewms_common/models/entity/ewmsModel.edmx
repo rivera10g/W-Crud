@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eWMS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+          <Property Name="APELLIDOS" Type="varchar" MaxLength="45" />
+          <Property Name="GENERO" Type="varchar" MaxLength="45" />
+          <Property Name="F_NACIMIENTO" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="TBL_ALUMNO_GRADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ALUMNO_ID" Type="int" />
+          <Property Name="GRADO_ID" Type="int" />
+          <Property Name="SECCION" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="TBL_GRADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+          <Property Name="PROFESOR_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_PROFESOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+          <Property Name="APELLIDOS" Type="varchar" MaxLength="45" />
+          <Property Name="GENERO" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <Association Name="FK__TBL_ALUMN__ALUMN__2E1BDC42">
+          <End Role="TBL_ALUMNO" Type="Self.TBL_ALUMNO" Multiplicity="0..1" />
+          <End Role="TBL_ALUMNO_GRADO" Type="Self.TBL_ALUMNO_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_ALUMNO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_ALUMNO_GRADO">
+              <PropertyRef Name="ALUMNO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_ALUMN__GRADO__2F10007B">
+          <End Role="TBL_GRADO" Type="Self.TBL_GRADO" Multiplicity="0..1" />
+          <End Role="TBL_ALUMNO_GRADO" Type="Self.TBL_ALUMNO_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_GRADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_ALUMNO_GRADO">
+              <PropertyRef Name="GRADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_GRADO__PROFE__2B3F6F97">
+          <End Role="TBL_PROFESOR" Type="Self.TBL_PROFESOR" Multiplicity="0..1" />
+          <End Role="TBL_GRADO" Type="Self.TBL_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PROFESOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_GRADO">
+              <PropertyRef Name="PROFESOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eWMSModelStoreContainer">
+          <EntitySet Name="TBL_ALUMNO" EntityType="Self.TBL_ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ALUMNO_GRADO" EntityType="Self.TBL_ALUMNO_GRADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_GRADO" EntityType="Self.TBL_GRADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PROFESOR" EntityType="Self.TBL_PROFESOR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBL_ALUMN__ALUMN__2E1BDC42" Association="Self.FK__TBL_ALUMN__ALUMN__2E1BDC42">
+            <End Role="TBL_ALUMNO" EntitySet="TBL_ALUMNO" />
+            <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_ALUMN__GRADO__2F10007B" Association="Self.FK__TBL_ALUMN__GRADO__2F10007B">
+            <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+            <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_GRADO__PROFE__2B3F6F97" Association="Self.FK__TBL_GRADO__PROFE__2B3F6F97">
+            <End Role="TBL_PROFESOR" EntitySet="TBL_PROFESOR" />
+            <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eWMS.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="eWMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_ALUMNO" EntityType="eWMS.Model.TBL_ALUMNO" />
+          <EntitySet Name="TBL_ALUMNO_GRADO" EntityType="eWMS.Model.TBL_ALUMNO_GRADO" />
+          <EntitySet Name="TBL_GRADO" EntityType="eWMS.Model.TBL_GRADO" />
+          <EntitySet Name="TBL_PROFESOR" EntityType="eWMS.Model.TBL_PROFESOR" />
+          <AssociationSet Name="FK__TBL_ALUMN__ALUMN__2E1BDC42" Association="eWMS.Model.FK__TBL_ALUMN__ALUMN__2E1BDC42">
+            <End Role="TBL_ALUMNO" EntitySet="TBL_ALUMNO" />
+            <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_ALUMN__GRADO__2F10007B" Association="eWMS.Model.FK__TBL_ALUMN__GRADO__2F10007B">
+            <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+            <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_GRADO__PROFE__2B3F6F97" Association="eWMS.Model.FK__TBL_GRADO__PROFE__2B3F6F97">
+            <End Role="TBL_PROFESOR" EntitySet="TBL_PROFESOR" />
+            <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TBL_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="GENERO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="F_NACIMIENTO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_ALUMNO_GRADO" Relationship="eWMS.Model.FK__TBL_ALUMN__ALUMN__2E1BDC42" FromRole="TBL_ALUMNO" ToRole="TBL_ALUMNO_GRADO" />
+        </EntityType>
+        <EntityType Name="TBL_ALUMNO_GRADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ALUMNO_ID" Type="Int32" />
+          <Property Name="GRADO_ID" Type="Int32" />
+          <Property Name="SECCION" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_ALUMNO" Relationship="eWMS.Model.FK__TBL_ALUMN__ALUMN__2E1BDC42" FromRole="TBL_ALUMNO_GRADO" ToRole="TBL_ALUMNO" />
+          <NavigationProperty Name="TBL_GRADO" Relationship="eWMS.Model.FK__TBL_ALUMN__GRADO__2F10007B" FromRole="TBL_ALUMNO_GRADO" ToRole="TBL_GRADO" />
+        </EntityType>
+        <EntityType Name="TBL_GRADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PROFESOR_ID" Type="Int32" />
+          <NavigationProperty Name="TBL_ALUMNO_GRADO" Relationship="eWMS.Model.FK__TBL_ALUMN__GRADO__2F10007B" FromRole="TBL_GRADO" ToRole="TBL_ALUMNO_GRADO" />
+          <NavigationProperty Name="TBL_PROFESOR" Relationship="eWMS.Model.FK__TBL_GRADO__PROFE__2B3F6F97" FromRole="TBL_GRADO" ToRole="TBL_PROFESOR" />
+        </EntityType>
+        <EntityType Name="TBL_PROFESOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="GENERO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_GRADO" Relationship="eWMS.Model.FK__TBL_GRADO__PROFE__2B3F6F97" FromRole="TBL_PROFESOR" ToRole="TBL_GRADO" />
+        </EntityType>
+        <Association Name="FK__TBL_ALUMN__ALUMN__2E1BDC42">
+          <End Type="eWMS.Model.TBL_ALUMNO" Role="TBL_ALUMNO" Multiplicity="0..1" />
+          <End Type="eWMS.Model.TBL_ALUMNO_GRADO" Role="TBL_ALUMNO_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_ALUMNO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_ALUMNO_GRADO">
+              <PropertyRef Name="ALUMNO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_ALUMN__GRADO__2F10007B">
+          <End Type="eWMS.Model.TBL_GRADO" Role="TBL_GRADO" Multiplicity="0..1" />
+          <End Type="eWMS.Model.TBL_ALUMNO_GRADO" Role="TBL_ALUMNO_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_GRADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_ALUMNO_GRADO">
+              <PropertyRef Name="GRADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_GRADO__PROFE__2B3F6F97">
+          <End Type="eWMS.Model.TBL_PROFESOR" Role="TBL_PROFESOR" Multiplicity="0..1" />
+          <End Type="eWMS.Model.TBL_GRADO" Role="TBL_GRADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PROFESOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_GRADO">
+              <PropertyRef Name="PROFESOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eWMSModelStoreContainer" CdmEntityContainer="eWMSEntities">
+          <EntitySetMapping Name="TBL_ALUMNO">
+            <EntityTypeMapping TypeName="eWMS.Model.TBL_ALUMNO">
+              <MappingFragment StoreEntitySet="TBL_ALUMNO">
+                <ScalarProperty Name="F_NACIMIENTO" ColumnName="F_NACIMIENTO" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ALUMNO_GRADO">
+            <EntityTypeMapping TypeName="eWMS.Model.TBL_ALUMNO_GRADO">
+              <MappingFragment StoreEntitySet="TBL_ALUMNO_GRADO">
+                <ScalarProperty Name="SECCION" ColumnName="SECCION" />
+                <ScalarProperty Name="GRADO_ID" ColumnName="GRADO_ID" />
+                <ScalarProperty Name="ALUMNO_ID" ColumnName="ALUMNO_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_GRADO">
+            <EntityTypeMapping TypeName="eWMS.Model.TBL_GRADO">
+              <MappingFragment StoreEntitySet="TBL_GRADO">
+                <ScalarProperty Name="PROFESOR_ID" ColumnName="PROFESOR_ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PROFESOR">
+            <EntityTypeMapping TypeName="eWMS.Model.TBL_PROFESOR">
+              <MappingFragment StoreEntitySet="TBL_PROFESOR">
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

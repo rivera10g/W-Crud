@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58b1226c47014c279edb9f09011f519e" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="eWMS.Model.DEF_LOCATIONS_CD1" Width="1.5" PointX="15.75" PointY="57.625" />
+        <EntityTypeShape EntityType="eWMS.Model.DEF_LOCATIONS_P1" Width="1.5" PointX="15.75" PointY="60.5" />
+        <AssociationConnector Association="eWMS.Model.fk_defl_deflcd1" />
+        <AssociationConnector Association="eWMS.Model.fk_defl_deflP1" />
+        <EntityTypeShape EntityType="eWMS.Model.VW_WMS_STOCK_LEVEL1" Width="1.5" PointX="50.375" PointY="0.75" />
+        <EntityTypeShape EntityType="eWMS.Model.VW_WMS_TOP_SALES1" Width="1.5" PointX="50.375" PointY="6.75" />
+        <EntityTypeShape EntityType="eWMS.Model.VW_WMS_SALES_DEVS1" Width="1.5" PointX="48.375" PointY="49.75" />
+        <EntityTypeShape EntityType="eWMS.Model.VW_WMS_SALES_RECEIPTS1" Width="1.5" PointX="50.375" PointY="0.75" />
+        <EntityTypeShape EntityType="eWMS.Model.TBL_ALUMNO" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="eWMS.Model.TBL_ALUMNO_GRADO" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="eWMS.Model.TBL_GRADO" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="eWMS.Model.TBL_PROFESOR" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="eWMS.Model.FK__TBL_ALUMN__ALUMN__2E1BDC42" />
+        <AssociationConnector Association="eWMS.Model.FK__TBL_ALUMN__GRADO__2F10007B" />
+        <AssociationConnector Association="eWMS.Model.FK__TBL_GRADO__PROFE__2B3F6F97" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

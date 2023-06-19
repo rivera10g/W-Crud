@@ -1,0 +1,12 @@
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\obj\Debug\ewms_common.csprojAssemblyReference.cache
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\obj\Debug\ewms_common.csproj.CoreCompileInputs.cache
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\ewms_common.dll.config
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\ewms_common.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\bin\Debug\ewms_common.pdb
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\obj\Debug\ewms_common.csproj.CopyComplete
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\obj\Debug\ewms_common.dll
+C:\Users\Consultor\Desktop\Core1.0\API\ewms_common\obj\Debug\ewms_common.pdb

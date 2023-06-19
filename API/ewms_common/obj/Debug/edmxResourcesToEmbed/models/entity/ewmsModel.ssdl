@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eWMS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_ALUMNO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="45" />
+    <Property Name="GENERO" Type="varchar" MaxLength="45" />
+    <Property Name="F_NACIMIENTO" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="TBL_ALUMNO_GRADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ALUMNO_ID" Type="int" />
+    <Property Name="GRADO_ID" Type="int" />
+    <Property Name="SECCION" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="TBL_GRADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+    <Property Name="PROFESOR_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_PROFESOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="45" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="45" />
+    <Property Name="GENERO" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <Association Name="FK__TBL_ALUMN__ALUMN__2E1BDC42">
+    <End Role="TBL_ALUMNO" Type="Self.TBL_ALUMNO" Multiplicity="0..1" />
+    <End Role="TBL_ALUMNO_GRADO" Type="Self.TBL_ALUMNO_GRADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ALUMNO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_ALUMNO_GRADO">
+        <PropertyRef Name="ALUMNO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_ALUMN__GRADO__2F10007B">
+    <End Role="TBL_GRADO" Type="Self.TBL_GRADO" Multiplicity="0..1" />
+    <End Role="TBL_ALUMNO_GRADO" Type="Self.TBL_ALUMNO_GRADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_GRADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_ALUMNO_GRADO">
+        <PropertyRef Name="GRADO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_GRADO__PROFE__2B3F6F97">
+    <End Role="TBL_PROFESOR" Type="Self.TBL_PROFESOR" Multiplicity="0..1" />
+    <End Role="TBL_GRADO" Type="Self.TBL_GRADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_PROFESOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_GRADO">
+        <PropertyRef Name="PROFESOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eWMSModelStoreContainer">
+    <EntitySet Name="TBL_ALUMNO" EntityType="Self.TBL_ALUMNO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ALUMNO_GRADO" EntityType="Self.TBL_ALUMNO_GRADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_GRADO" EntityType="Self.TBL_GRADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PROFESOR" EntityType="Self.TBL_PROFESOR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TBL_ALUMN__ALUMN__2E1BDC42" Association="Self.FK__TBL_ALUMN__ALUMN__2E1BDC42">
+      <End Role="TBL_ALUMNO" EntitySet="TBL_ALUMNO" />
+      <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_ALUMN__GRADO__2F10007B" Association="Self.FK__TBL_ALUMN__GRADO__2F10007B">
+      <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+      <End Role="TBL_ALUMNO_GRADO" EntitySet="TBL_ALUMNO_GRADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_GRADO__PROFE__2B3F6F97" Association="Self.FK__TBL_GRADO__PROFE__2B3F6F97">
+      <End Role="TBL_PROFESOR" EntitySet="TBL_PROFESOR" />
+      <End Role="TBL_GRADO" EntitySet="TBL_GRADO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eWMSModelStoreContainer" CdmEntityContainer="eWMSEntities">
+    <EntitySetMapping Name="TBL_ALUMNO">
+      <EntityTypeMapping TypeName="eWMS.Model.TBL_ALUMNO">
+        <MappingFragment StoreEntitySet="TBL_ALUMNO">
+          <ScalarProperty Name="F_NACIMIENTO" ColumnName="F_NACIMIENTO" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ALUMNO_GRADO">
+      <EntityTypeMapping TypeName="eWMS.Model.TBL_ALUMNO_GRADO">
+        <MappingFragment StoreEntitySet="TBL_ALUMNO_GRADO">
+          <ScalarProperty Name="SECCION" ColumnName="SECCION" />
+          <ScalarProperty Name="GRADO_ID" ColumnName="GRADO_ID" />
+          <ScalarProperty Name="ALUMNO_ID" ColumnName="ALUMNO_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_GRADO">
+      <EntityTypeMapping TypeName="eWMS.Model.TBL_GRADO">
+        <MappingFragment StoreEntitySet="TBL_GRADO">
+          <ScalarProperty Name="PROFESOR_ID" ColumnName="PROFESOR_ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PROFESOR">
+      <EntityTypeMapping TypeName="eWMS.Model.TBL_PROFESOR">
+        <MappingFragment StoreEntitySet="TBL_PROFESOR">
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
